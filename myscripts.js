@@ -51,7 +51,7 @@ function playRound(playerSelection, computerSelection)
             return "loss"
         }
     }
-    else
+    else if(playerSelection=="scissors")
     {
         if(computerSelection=="rock")
         {
@@ -65,7 +65,11 @@ function playRound(playerSelection, computerSelection)
         {
             return "draw"
         }
-    }   
+    } 
+    else
+    {
+        return "draw";
+    }  
 }
 
     let player="rock";
@@ -73,3 +77,43 @@ function playRound(playerSelection, computerSelection)
 
     console.log(computer);
     console.log(playRound(player, computer));
+
+function game()
+{
+    let playerWins=0
+    let computerWins=0;
+    while(playerWins<5&&computerWins<5)
+    {
+        let playerChoice=prompt("what is your choice?");
+        let computerChoice=getComputerChoice();
+
+        let outcome=playRound(playerChoice, computerChoice);
+
+        if(outcome=="win")
+        {
+            playerWins++;
+            alert("you won that one | Computer Wins: "+computerWins+" | Player Wins: "+playerWins);
+        }
+        else if(outcome=="loss")
+        {
+            computerWins++;
+            alert("you lost that one | Computer Wins: "+computerWins+" | Player Wins: "+playerWins);
+        }
+        else
+        {
+            alert("draw | Computer Wins: "+computerWins+" | Player Wins: "+playerWins);
+        }
+
+    }
+
+    if(computerWins==5)
+    {
+        alert("you loss :(");
+    }
+    else
+    {
+        alert("you win :)");
+    }
+}
+
+console.log(game());
