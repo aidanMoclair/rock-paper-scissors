@@ -20,6 +20,7 @@ console.log(getComputerChoice());
 function playRound(playerSelection, computerSelection)
 {
     playerSelection=playerSelection.toLowerCase()
+    if(playerSelection )
 
     if(playerSelection== "rock")
     {
